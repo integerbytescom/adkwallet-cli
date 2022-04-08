@@ -522,12 +522,13 @@ func ExecuteCommand(cmd []string) string {
 			 }
 		 }
 		 if len(privateKey) < 40 {
-			 return fail("could not find source address in local wallet (checked 1000 addresses)")
+			  return fail("could not find source address in local wallet (checked 1000 addresses)")
 		 }
 
 		 // ready to send
 		 privateKey_str := privateKey
 		 amount_bigf_WEI, _, _ := big.ParseFloat("0", 10, 256, big.ToNearestEven)
+		 amount_bigf_ZERO, _, _ := big.ParseFloat("0", 10, 256, big.ToNearestEven)
 		 amount_bigf_18, _, _ := big.ParseFloat("1000000000000000000", 10, 256, big.ToNearestEven)
 
 		 //aamount_bigf_gasdefault, _, _ := big.ParseFloat("0021000000000000000", 10, 256, big.ToNearestEven) // 0.021ADK
@@ -551,13 +552,13 @@ func ExecuteCommand(cmd []string) string {
 			 balanceSourceAddr.Sub(balanceSourceAddr, aamount_bigf_gasdefault) // deduct gas
 		 }
 
-		 if balanceSourceAddr.Cmp(amount_bigf_WEI) < 0 {
+		 if balanceSourceAddr.Cmp(amount_bigf_ZERO) < 0 {
 			 if method == "gas" {
 				 return fail("insufficient balance on source address. did you consider 0.21 ADK gas fee for unstaking?")
 			 }
-			 // if method == "pow" {  // no pow option for unstaking
-				//  return fail("insufficient balance on source address.")
-			 // }
+			 //if method == "pow" {  // no pow option for unstaking
+			 //	  return fail("insufficient balance on source address.")
+			 //}
 		 }
 
 		 client, errC := ethclient.Dial(ServerAPI)

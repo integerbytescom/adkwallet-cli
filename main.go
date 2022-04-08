@@ -53,7 +53,6 @@ func main() {
 		}
 	}
 
-
 	modules.ReadConfig()
 	modules.StoreConfig()
 

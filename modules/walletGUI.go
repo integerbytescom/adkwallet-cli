@@ -50,11 +50,11 @@ func fmt_Print(a ...interface{}) {
 func GUISplash() {
 
 	{
-		build := "(Build 2022.03.07.1314)"
+		build := "(Build 2022.04.07.4324)"
 		fmt_Println("  ")
 		fmt_Println("***************************************************************")
 		fmt_Println("*  ")
-		fmt_Println("*  ADK WALLET [Network 2.1] ", build)
+		fmt_Println("*  ADK WALLET [Network 2.1.3] ", build)
 		fmt_Println("*  ")
 		fmt_Println("***************************************************************")
 
