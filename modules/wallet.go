@@ -20,7 +20,7 @@ var loadAccounts int
 func init() {
 	CachedPassword = ""
 	Authenticated = true
-	loadAccounts = 5
+	loadAccounts = 1
 }
 
 func InitializeLocalWalletFromMM(mm string, password string) {
